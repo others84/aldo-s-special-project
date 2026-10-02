@@ -11,8 +11,6 @@ const contactoSchema = z.object({
   demo: z.boolean(),
 });
 
-export type ContactoInput = z.infer<typeof contactoSchema>;
-
 export const enviarContacto = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => contactoSchema.parse(data))
   .handler(async ({ data }) => {
@@ -25,23 +23,26 @@ export const enviarContacto = createServerFn({ method: "POST" })
       ["Clínica o especialidad", data.clinica || "—"],
       ["Ciudad", data.ciudad || "—"],
       ["Acceso al demo", data.demo ? "Sí" : "No"],
-    ]
-      .map(([k, v]) => `<tr><td style="padding:6px 12px;font-weight:600;white-space:nowrap;vertical-align:top;">${escapeHtml(k)}</td><td style="padding:6px 12px;">${escapeHtml(String(v))}</td></tr>`)
-      .join("");
+    ] as const;
 
     const html = `
       <h2 style="margin:0 0 12px;">Solicitud de información SGCO</h2>
-      <table style="border-collapse:collapse;font-family:sans-serif;font-size:14px;">${filas}</table>
+      <table style="border-collapse:collapse;font-family:sans-serif;font-size:14px;">${filas
+        .map(
+          ([k, v]) =>
+            `<tr><td style="padding:6px 12px;font-weight:600;white-space:nowrap;vertical-align:top;">${escapeHtml(k)}</td><td style="padding:6px 12px;">${escapeHtml(String(v))}</td></tr>`,
+        )
+        .join("")}</table>
       ${data.mensaje ? `<h3 style="margin:20px 0 6px;">Mensaje</h3><p style="font-family:sans-serif;font-size:14px;white-space:pre-wrap;">${escapeHtml(data.mensaje)}</p>` : ""}
     `;
     const text = [
       "Solicitud de información SGCO",
-      ...filas.map((f) => f),
+      ...filas.map(([k, v]) => `${k}: ${v}`),
       data.mensaje ? `\nMensaje:\n${data.mensaje}` : "",
     ].join("\n");
 
     try {
-      const res = await sendLovableEmail(
+      await sendLovableEmail(
         {
           to: "ventas@sgcopuebla.com.mx",
           from: "ventas@sgcopuebla.com.mx",
@@ -57,7 +58,7 @@ export const enviarContacto = createServerFn({ method: "POST" })
       );
       return { ok: true as const };
     } catch (err) {
-      const code = (err as { code?: string; status?: number }).code ?? "";
+      const code = (err as { code?: string }).code ?? "";
       const status = (err as { status?: number }).status ?? 0;
       if (code === "emails_disabled" || status === 400) {
         return { ok: false as const, reason: "email_not_ready" as const };
