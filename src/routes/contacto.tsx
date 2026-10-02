@@ -33,13 +33,15 @@ function Page() {
     const d = new FormData(form);
     setEstado("enviando");
     const res = await enviar({
-      nombre: String(d.get("nombre") ?? "").trim().slice(0, 100),
-      correo: String(d.get("correo") ?? "").trim().slice(0, 255),
-      telefono: String(d.get("telefono") ?? "").trim().slice(0, 50),
-      clinica: String(d.get("clinica") ?? "").trim().slice(0, 200),
-      ciudad: String(d.get("ciudad") ?? "").trim().slice(0, 100),
-      mensaje: String(d.get("mensaje") ?? "").trim().slice(0, 2000),
-      demo: d.get("demo") === "on",
+      data: {
+        nombre: String(d.get("nombre") ?? "").trim().slice(0, 100),
+        correo: String(d.get("correo") ?? "").trim().slice(0, 255),
+        telefono: String(d.get("telefono") ?? "").trim().slice(0, 50),
+        clinica: String(d.get("clinica") ?? "").trim().slice(0, 200),
+        ciudad: String(d.get("ciudad") ?? "").trim().slice(0, 100),
+        mensaje: String(d.get("mensaje") ?? "").trim().slice(0, 2000),
+        demo: d.get("demo") === "on",
+      },
     });
     if (res.ok) {
       setEstado("ok");
