@@ -9,31 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as CaracteristicasRouteImport } from './routes/caracteristicas'
-import { Route as ComoFuncionaRouteImport } from './routes/como-funciona'
-import { Route as ContactoRouteImport } from './routes/contacto'
-import { Route as PaquetesRouteImport } from './routes/paquetes'
 import { Route as QueEsRouteImport } from './routes/que-es'
+import { Route as PaquetesRouteImport } from './routes/paquetes'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as ComoFuncionaRouteImport } from './routes/como-funciona'
+import { Route as CaracteristicasRouteImport } from './routes/caracteristicas'
+import { Route as IndexRouteImport } from './routes/index'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CaracteristicasRoute = CaracteristicasRouteImport.update({
-  id: '/caracteristicas',
-  path: '/caracteristicas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComoFuncionaRoute = ComoFuncionaRouteImport.update({
-  id: '/como-funciona',
-  path: '/como-funciona',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactoRoute = ContactoRouteImport.update({
-  id: '/contacto',
-  path: '/contacto',
+const QueEsRoute = QueEsRouteImport.update({
+  id: '/que-es',
+  path: '/que-es',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PaquetesRoute = PaquetesRouteImport.update({
@@ -41,9 +26,24 @@ const PaquetesRoute = PaquetesRouteImport.update({
   path: '/paquetes',
   getParentRoute: () => rootRouteImport,
 } as any)
-const QueEsRoute = QueEsRouteImport.update({
-  id: '/que-es',
-  path: '/que-es',
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComoFuncionaRoute = ComoFuncionaRouteImport.update({
+  id: '/como-funciona',
+  path: '/como-funciona',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaracteristicasRoute = CaracteristicasRouteImport.update({
+  id: '/caracteristicas',
+  path: '/caracteristicas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -110,32 +110,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/caracteristicas': {
-      id: '/caracteristicas'
-      path: '/caracteristicas'
-      fullPath: '/caracteristicas'
-      preLoaderRoute: typeof CaracteristicasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/como-funciona': {
-      id: '/como-funciona'
-      path: '/como-funciona'
-      fullPath: '/como-funciona'
-      preLoaderRoute: typeof ComoFuncionaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contacto': {
-      id: '/contacto'
-      path: '/contacto'
-      fullPath: '/contacto'
-      preLoaderRoute: typeof ContactoRouteImport
+    '/que-es': {
+      id: '/que-es'
+      path: '/que-es'
+      fullPath: '/que-es'
+      preLoaderRoute: typeof QueEsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/paquetes': {
@@ -145,11 +124,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PaquetesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/que-es': {
-      id: '/que-es'
-      path: '/que-es'
-      fullPath: '/que-es'
-      preLoaderRoute: typeof QueEsRouteImport
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/como-funciona': {
+      id: '/como-funciona'
+      path: '/como-funciona'
+      fullPath: '/como-funciona'
+      preLoaderRoute: typeof ComoFuncionaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/caracteristicas': {
+      id: '/caracteristicas'
+      path: '/caracteristicas'
+      fullPath: '/caracteristicas'
+      preLoaderRoute: typeof CaracteristicasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
