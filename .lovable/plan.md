@@ -17,13 +17,19 @@ Cada opción abre una pantalla distinta (ruta propia), empezando arriba.
 - **¿Qué es SGCO?**: "Sistema Integral de Gestión Médica y Citas Multiclínica" + frase de valor, por qué mexicano y todo incluido.
 - **Cómo funciona**: pasos visuales: el paciente agenda en el portal (con verificación OTP) → asistente confirma/recuerda por WhatsApp → médico atiende y se mide tiempo real → reportes.
 - **Características**: las 7 secciones del documento (Multiclínica, Portal público 24/7, Agenda inteligente, Notificaciones WhatsApp/correo, Roles y seguridad, Reportes, Tecnología web multidispositivo), con iconos.
-- **Paquetes**: Consultorio, Clínica, Clínica extendida; selector Mensual/Anual (anual = paga 10 meses). Precios provisionales "Consultar" hasta que Aldo dé las cifras.
+- **Paquetes** (precios en MXN + IVA), selector Mensual/Anual (anual = paga 10 meses):
+  - Consultorio: $1,000/mes (anual $10,000).
+  - Clínica (2 a 5 médicos): $1,000 el primer médico + $500 por cada médico del 2 al 5 (de $1,500 a $3,000/mes).
+  - Clínica extendida (6 a 10 médicos): igual que Clínica hasta 5 médicos + $250 por cada médico del 6 al 10 (de $3,250 a $4,250/mes).
+  - Calculadora: el visitante elige el número de médicos y ve el total mensual o anual.
 - **Contacto**: formulario (nombre, correo, teléfono, clínica/especialidad, ciudad, mensaje, casilla "quiero acceso al demo") que abre el correo del visitante dirigido a ventas@sgcopuebla.com.mx, más el correo visible.
 
 ## Diseño
 - Paleta médica clara: fondo blanco/gris muy claro, azul clínico como color principal, rojo médico como acento en botones de acción, grises para texto.
 - Tipografía moderna y legible (Sora para títulos, Manrope para texto).
 - Tarjetas limpias, iconos, animaciones suaves al entrar; menú hamburguesa en celular.
+- Imágenes generadas: consultorios modernos, médicos usando tablet/laptop con la agenda, y composiciones de pantallas web mezcladas con utensilios médicos (estetoscopio, etc.).
+- Espacio reservado para el logotipo en el encabezado y pie (se reemplaza cuando Aldo lo envíe).
 
 ## SEO
 - Título y metadescripción (≤155 caracteres) únicos por página con palabras clave principales.
@@ -34,8 +40,7 @@ Cada opción abre una pantalla distinta (ruta propia), empezando arriba.
 React + TanStack Start (rápido, buen SEO al generar las páginas en el servidor), Tailwind CSS, componentes shadcn/ui, iconos Lucide y animaciones con Motion.
 
 ## Pendientes de Aldo
-- Precios de cada paquete.
-- Logotipo (si existe); si no, se usa el nombre "SGCO" con estilo.
+- Archivo del logotipo.
 - Mención de firma digital de consentimiento: se incluirá solo si el sistema la tiene (aparece en palabras clave, no en características).
 
 ## Detalles técnicos
