@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { Menu, X, Mail } from "lucide-react";
+import { Menu, X, CalendarCheck } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Inicio" },
@@ -78,9 +78,9 @@ export function Footer() {
         </div>
         <div className="text-sm">
           <p className="font-semibold">Contacto</p>
-          <a href="mailto:ventas@sgcopuebla.com.mx" className="mt-2 flex items-center gap-2 text-primary">
-            <Mail className="h-4 w-4" /> ventas@sgcopuebla.com.mx
-          </a>
+          <Link to="/contacto" className="mt-2 flex items-center gap-2 text-primary hover:underline">
+            <CalendarCheck className="h-4 w-4" /> Solicita información o el demo
+          </Link>
         </div>
       </div>
       <p className="border-t py-4 text-center text-xs text-muted-foreground">© {new Date().getFullYear()} SGCO Puebla. Todos los derechos reservados.</p>

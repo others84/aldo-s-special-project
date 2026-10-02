@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { Mail, CheckCircle2, AlertTriangle } from "lucide-react";
+import { CalendarCheck, CheckCircle2, AlertTriangle } from "lucide-react";
 import { useServerFn } from "@tanstack/react-start";
 import { PageHero, seo } from "@/components/site/Layout";
 import { enviarContacto } from "@/lib/contacto.functions";
@@ -9,7 +9,7 @@ export const Route = createFileRoute("/contacto")({
   head: () =>
     seo(
       "Contacto y demo del sistema de citas médicas | SGCO",
-      "Solicita información y acceso al demo de SGCO, el software médico mexicano para consultorios y clínicas. Escríbenos a ventas@sgcopuebla.com.mx.",
+      "Solicita información y acceso al demo de SGCO, el software médico mexicano para consultorios y clínicas. Llena el formulario y te contactamos.",
       "/contacto",
     ),
   component: Page,
@@ -88,23 +88,25 @@ function Page() {
           {estado === "no-listo" && (
             <p className="flex items-start gap-2 text-sm sm:col-span-2">
               <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
-              El envío de correos aún no está activo para el dominio de SGCO. Escríbenos mientras tanto a{" "}
-              <a href="mailto:ventas@sgcopuebla.com.mx" className="underline">ventas@sgcopuebla.com.mx</a>.
+              El envío de correos aún no está activo. Guardamos tu solicitud y te contactaremos en cuanto esté disponible.
             </p>
           )}
           {estado === "error" && (
             <p className="flex items-start gap-2 text-sm sm:col-span-2">
               <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
-              No pudimos enviar tu solicitud en este momento. Intenta de nuevo o escríbenos a{" "}
-              <a href="mailto:ventas@sgcopuebla.com.mx" className="underline">ventas@sgcopuebla.com.mx</a>.
+              No pudimos enviar tu solicitud en este momento. Intenta de nuevo en unos minutos.
             </p>
           )}
         </form>
         <aside className="rounded-2xl bg-primary p-7 text-primary-foreground">
-          <Mail className="h-8 w-8" />
-          <h2 className="mt-4 text-xl font-bold">Escríbenos directo</h2>
-          <a href="mailto:ventas@sgcopuebla.com.mx" className="mt-2 block break-all font-semibold underline">ventas@sgcopuebla.com.mx</a>
-          <p className="mt-4 text-sm opacity-90">Atendemos médicos y clínicas en Puebla, Tlaxcala, CDMX, Guadalajara, Monterrey y todo México.</p>
+          <CalendarCheck className="h-8 w-8" />
+          <h2 className="mt-4 text-xl font-bold">Así funciona tu solicitud</h2>
+          <ul className="mt-4 space-y-3 text-sm opacity-95">
+            <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> Llena el formulario con los datos de tu consultorio o clínica.</li>
+            <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> Recibes acceso al demo y una explicación personalizada.</li>
+            <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> Sin compromiso: decides después de probar el sistema.</li>
+          </ul>
+          <p className="mt-5 text-sm opacity-90">Atendemos médicos y clínicas en Puebla, Tlaxcala, CDMX, Guadalajara, Monterrey y todo México.</p>
         </aside>
       </section>
     </>
