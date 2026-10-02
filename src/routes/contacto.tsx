@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { Mail } from "lucide-react";
+import { Mail, CheckCircle2, AlertTriangle } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
 import { PageHero, seo } from "@/components/site/Layout";
+import { enviarContacto } from "@/lib/contacto.functions";
 
 export const Route = createFileRoute("/contacto")({
   head: () =>
@@ -19,22 +21,34 @@ const fields = [
   { n: "telefono", l: "Teléfono / WhatsApp", t: "tel", r: false },
   { n: "clinica", l: "Clínica o especialidad", t: "text", r: false },
   { n: "ciudad", l: "Ciudad", t: "text", r: false },
-];
+] as const;
 
 function Page() {
-  const [sent, setSent] = useState(false);
-  function submit(e: FormEvent<HTMLFormElement>) {
+  const enviar = useServerFn(enviarContacto);
+  const [estado, setEstado] = useState<"idle" | "enviando" | "ok" | "error" | "no-listo">("idle");
+
+  async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const d = new FormData(e.currentTarget);
-    const body = [
-      ...fields.map((f) => `${f.l}: ${String(d.get(f.n) ?? "").slice(0, 200)}`),
-      `Quiero acceso al demo: ${d.get("demo") ? "Sí" : "No"}`,
-      "",
-      String(d.get("mensaje") ?? "").slice(0, 2000),
-    ].join("\n");
-    window.location.href = `mailto:ventas@sgcopuebla.com.mx?subject=${encodeURIComponent("Solicitud de información SGCO")}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    const form = e.currentTarget;
+    const d = new FormData(form);
+    setEstado("enviando");
+    const res = await enviar({
+      nombre: String(d.get("nombre") ?? "").trim().slice(0, 100),
+      correo: String(d.get("correo") ?? "").trim().slice(0, 255),
+      telefono: String(d.get("telefono") ?? "").trim().slice(0, 50),
+      clinica: String(d.get("clinica") ?? "").trim().slice(0, 200),
+      ciudad: String(d.get("ciudad") ?? "").trim().slice(0, 100),
+      mensaje: String(d.get("mensaje") ?? "").trim().slice(0, 2000),
+      demo: d.get("demo") === "on",
+    });
+    if (res.ok) {
+      setEstado("ok");
+      form.reset();
+    } else {
+      setEstado(res.reason === "email_not_ready" ? "no-listo" : "error");
+    }
   }
+
   const input = "mt-1 w-full rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary";
   return (
     <>
@@ -46,7 +60,7 @@ function Page() {
           {fields.map((f) => (
             <label key={f.n} className="text-sm font-medium">
               {f.l}{f.r && " *"}
-              <input name={f.n} type={f.t} required={f.r} maxLength={200} className={input} />
+              <input name={f.n} type={f.t} required={f.r} maxLength={f.n === "correo" ? 255 : 200} className={input} />
             </label>
           ))}
           <label className="text-sm font-medium sm:col-span-2">
@@ -56,8 +70,33 @@ function Page() {
           <label className="flex items-center gap-2 text-sm sm:col-span-2">
             <input type="checkbox" name="demo" defaultChecked /> Quiero acceso al demo
           </label>
-          <button className="rounded-md bg-accent py-3 font-semibold text-accent-foreground hover:opacity-90 sm:col-span-2">Enviar solicitud</button>
-          {sent && <p className="text-sm text-primary sm:col-span-2">Se abrió tu aplicación de correo para enviar la solicitud.</p>}
+          <button
+            type="submit"
+            disabled={estado === "enviando"}
+            className="rounded-md bg-accent py-3 font-semibold text-accent-foreground hover:opacity-90 disabled:opacity-60 sm:col-span-2"
+          >
+            {estado === "enviando" ? "Enviando…" : "Enviar solicitud"}
+          </button>
+          {estado === "ok" && (
+            <p className="flex items-start gap-2 text-sm text-primary sm:col-span-2">
+              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
+              ¡Gracias! Tu solicitud fue enviada; te contactaremos a la brevedad.
+            </p>
+          )}
+          {estado === "no-listo" && (
+            <p className="flex items-start gap-2 text-sm sm:col-span-2">
+              <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
+              El envío de correos aún no está activo para el dominio de SGCO. Escríbenos mientras tanto a{" "}
+              <a href="mailto:ventas@sgcopuebla.com.mx" className="underline">ventas@sgcopuebla.com.mx</a>.
+            </p>
+          )}
+          {estado === "error" && (
+            <p className="flex items-start gap-2 text-sm sm:col-span-2">
+              <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
+              No pudimos enviar tu solicitud en este momento. Intenta de nuevo o escríbenos a{" "}
+              <a href="mailto:ventas@sgcopuebla.com.mx" className="underline">ventas@sgcopuebla.com.mx</a>.
+            </p>
+          )}
         </form>
         <aside className="rounded-2xl bg-primary p-7 text-primary-foreground">
           <Mail className="h-8 w-8" />
