@@ -8,15 +8,13 @@ const nav = [
   { to: "/como-funciona", label: "Cómo funciona" },
   { to: "/caracteristicas", label: "Características" },
   { to: "/paquetes", label: "Paquetes" },
+  { to: "/contacto", label: "Contacto" },
 ] as const;
 
 export function Logo() {
-  // Espacio reservado para el logotipo oficial
   return (
     <Link to="/" className="flex items-center gap-2" aria-label="SGCO inicio">
-      <span className="grid h-10 w-10 place-items-center rounded-lg border-2 border-dashed border-primary/40 text-[10px] font-semibold text-primary">
-        LOGO
-      </span>
+      <img src="/favicon.png" alt="Logotipo SGCO" width={40} height={40} className="h-10 w-10" />
       <span className="text-xl font-bold text-foreground" style={{ fontFamily: "Sora" }}>
         SGCO<span className="text-accent">.</span>
       </span>
@@ -81,6 +79,10 @@ export function Footer() {
           <Link to="/contacto" className="mt-2 flex items-center gap-2 text-primary hover:underline">
             <CalendarCheck className="h-4 w-4" /> Solicita información o el demo
           </Link>
+          <div className="mt-4 flex flex-col gap-2">
+            <Link to="/terminos" className="text-muted-foreground hover:text-primary">Términos del servicio</Link>
+            <Link to="/aviso-privacidad" className="text-muted-foreground hover:text-primary">Aviso de privacidad</Link>
+          </div>
         </div>
       </div>
       <p className="border-t py-4 text-center text-xs text-muted-foreground">© {new Date().getFullYear()} SGCO Puebla. Todos los derechos reservados.</p>

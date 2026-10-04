@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CalendarCheck, MessageCircle, TrendingDown, Smartphone, ShieldCheck, Stethoscope, UserCog, Headset, Building2 } from "lucide-react";
-import hero from "@/assets/hero-doctor.jpg";
-import reception from "@/assets/reception.jpg";
+import heroAsset from "@/assets/imagen1.jpg.asset.json";
+import reception from "@/assets/reception-dentista.jpg";
+const hero = heroAsset.url;
 import { CTA, seo } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/")({
@@ -35,17 +36,14 @@ function Index() {
           <div>
             <p className="inline-block rounded-full bg-card px-3 py-1 text-xs font-semibold text-primary">🇲🇽 Software médico hecho en México</p>
             <h1 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">
-              Software para clínicas médicas y <span className="text-primary">sistema de citas médicas</span> en la nube
+              Sistema de citas médicas <span className="text-primary">online</span>
             </h1>
-            <p className="mt-5 text-lg text-muted-foreground">
-              SGCO es el software de gestión médica que reemplaza la agenda de papel. Organiza pacientes, médicos y citas en tiempo real desde cualquier dispositivo. Un sistema para consultorios médicos completo, <strong className="text-foreground">sin pagos extra por funcionalidades: todo va incluido en el mismo precio.</strong>
-            </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/contacto" className="rounded-md bg-accent px-6 py-3 font-semibold text-accent-foreground hover:opacity-90">Solicitar demo</Link>
               <Link to="/paquetes" className="rounded-md border border-primary px-6 py-3 font-semibold text-primary hover:bg-card">Ver paquetes</Link>
             </div>
           </div>
-          <img src={hero} alt="Doctora mostrando la agenda médica online de SGCO en una tablet" width={1536} height={1024} className="rounded-2xl shadow-xl" />
+          <img src={hero} alt="Médico usando el sistema de citas médicas online en una tablet" width={678} height={452} className="rounded-2xl shadow-xl" />
         </div>
       </section>
 
@@ -65,7 +63,7 @@ function Index() {
 
       <section className="bg-card">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-20 md:grid-cols-2">
-          <img src={reception} alt="Asistente médica usando el software para clínicas en recepción" loading="lazy" width={1536} height={1024} className="rounded-2xl shadow-lg" />
+          <img src={reception} alt="Asistente en recepción del Consultorio Dra. Sandra Carmina, dentista" loading="lazy" width={1536} height={1024} className="rounded-2xl shadow-lg" />
           <div>
             <h2 className="text-3xl font-bold">Software para clínicas con acceso para asistentes y médicos</h2>
             <div className="mt-6 space-y-5">
@@ -95,7 +93,7 @@ function Index() {
             </div>
           ))}
         </div>
-        <p className="mt-10 text-center text-sm text-muted-foreground">Atendemos clínicas en Puebla, Tlaxcala, CDMX, Guadalajara, Monterrey y todo México.</p>
+        <p className="mt-10 text-center text-sm text-muted-foreground">Atendemos en toda la República Mexicana.</p>
       </section>
       <CTA />
     </>
