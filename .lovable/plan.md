@@ -25,7 +25,11 @@ Se aplican textualmente todos los cambios del documento:
 
 ## Paquetes
 - Se quita la frase "Precios en pesos mexicanos más IVA. En el pago anual pagas 10 meses y usas 12."
-- Precio base baja de $1,000 a $800 mensuales (Consultorio y primer médico de Clínica). Los precios de médicos adicionales ($500 y $250) se mantienen. Anual se sigue calculando como 10 meses.
+- Nuevos precios mensuales (+ IVA):
+  - Primer médico / Consultorio: $800
+  - Médicos del 2 al 5: $400 c/u (Clínica: de $1,200 a $2,400)
+  - Médicos del 6 al 10: $200 c/u (Clínica extendida: de $2,600 a $3,400)
+- La calculadora y todas las tarjetas usan estos precios. Anual se sigue calculando como 10 meses.
 
 ## Archivos a modificar (por prioridad)
 1. Página de Inicio
