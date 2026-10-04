@@ -7,15 +7,15 @@ export const Route = createFileRoute("/paquetes")({
   head: () =>
     seo(
       "Precios del software para clínicas en México | SGCO",
-      "Paquetes de software médico económico: Consultorio desde $1,000 MXN al mes. Pago anual: paga 10 meses y usa 12. Todo incluido.",
+      "Paquetes de software médico económico: Consultorio desde $800 MXN al mes. Pago anual: paga 10 meses y usa 12. Todo incluido.",
       "/paquetes",
     ),
   component: Page,
 });
 
 function monthly(doctors: number) {
-  let total = 1000;
-  for (let n = 2; n <= doctors; n++) total += n <= 5 ? 500 : 250;
+  let total = 800;
+  for (let n = 2; n <= doctors; n++) total += n <= 5 ? 400 : 200;
   return total;
 }
 const fmt = (n: number) => n.toLocaleString("es-MX", { style: "currency", currency: "MXN", maximumFractionDigits: 0 });
@@ -33,9 +33,7 @@ function Page() {
   const per = annual ? "/año" : "/mes";
   return (
     <>
-      <PageHero eyebrow="Paquetes" title="Software para clínicas: precio claro, todo incluido">
-        Precios en pesos mexicanos más IVA. En el pago anual pagas 10 meses y usas 12.
-      </PageHero>
+      <PageHero eyebrow="Paquetes" title="Software para clínicas: precio claro, todo incluido" />
       <section className="mx-auto max-w-6xl px-4 py-16">
         <div className="mx-auto flex w-fit rounded-full border bg-card p-1">
           {["Mensual", "Anual"].map((l, i) => (
@@ -66,7 +64,7 @@ function Page() {
 
         <div className="mx-auto mt-14 max-w-xl rounded-2xl border bg-card p-7 text-center">
           <h2 className="text-xl font-bold">Calcula tu precio</h2>
-          <p className="mt-1 text-sm text-muted-foreground">Primer médico $1,000 · del 2 al 5: $500 c/u · del 6 al 10: $250 c/u</p>
+          <p className="mt-1 text-sm text-muted-foreground">Primer médico $800 · del 2 al 5: $400 c/u · del 6 al 10: $200 c/u</p>
           <label className="mt-5 block text-sm font-medium">Número de médicos: <strong>{docs}</strong></label>
           <input type="range" min={1} max={10} value={docs} onChange={(e) => setDocs(+e.target.value)} className="mt-2 w-full accent-[var(--primary)]" />
           <p className="mt-4 text-3xl font-bold text-primary">{fmt(monthly(docs) * mult)}<span className="text-base text-muted-foreground">{per} + IVA</span></p>

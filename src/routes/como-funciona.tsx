@@ -1,22 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CalendarPlus, MessageCircle, Timer, BarChart3 } from "lucide-react";
+import { CalendarPlus, MessageCircle, Timer, CalendarClock } from "lucide-react";
 import { CTA, PageHero, seo } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/como-funciona")({
   head: () =>
     seo(
       "Cómo funciona el sistema de citas médicas | SGCO",
-      "Así funciona SGCO: portal de citas en línea para pacientes, confirmación por WhatsApp, medición de tiempos reales de consulta y reportes.",
+      "Así funciona SGCO: el paciente agenda en línea o por teléfono, el consultorio confirma, el médico atiende y se programa la siguiente cita.",
       "/como-funciona",
     ),
   component: Page,
 });
 
 const steps = [
-  { i: CalendarPlus, t: "El paciente agenda en línea", d: "Desde el portal público elige médico, especialidad y horario en un calendario visual. Los pacientes recurrentes se verifican con código OTP." },
-  { i: MessageCircle, t: "La asistente confirma por WhatsApp", d: "Con un clic envía recordatorios personalizados por WhatsApp o correo, reduciendo el ausentismo." },
-  { i: Timer, t: "El médico atiende", d: "El sistema registra la hora real de inicio y término de cada consulta y guarda observaciones e historial." },
-  { i: BarChart3, t: "Consultas tus reportes", d: "Ingresos, demanda por especialidad, tiempos promedio y pacientes frecuentes en gráficas interactivas." },
+  { i: CalendarPlus, t: "El paciente agenda su cita", d: "Hay 2 opciones: 1) el paciente agenda desde la página web del médico, o 2) el paciente se comunica con el consultorio para agendar una cita." },
+  { i: MessageCircle, t: "El asistente y/o médico confirman la cita", d: "La confirmación y los recordatorios se envían por WhatsApp o correo." },
+  { i: Timer, t: "El médico atiende", d: "El médico atiende al paciente en el horario agendado." },
+  { i: CalendarClock, t: "Se programa la siguiente cita", d: "Al terminar la consulta se agenda la próxima cita de seguimiento." },
 ];
 
 function Page() {

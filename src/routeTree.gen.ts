@@ -9,13 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TerminosRouteImport } from './routes/terminos'
 import { Route as QueEsRouteImport } from './routes/que-es'
 import { Route as PaquetesRouteImport } from './routes/paquetes'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as ComoFuncionaRouteImport } from './routes/como-funciona'
 import { Route as CaracteristicasRouteImport } from './routes/caracteristicas'
+import { Route as AvisoPrivacidadRouteImport } from './routes/aviso-privacidad'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TerminosRoute = TerminosRouteImport.update({
+  id: '/terminos',
+  path: '/terminos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QueEsRoute = QueEsRouteImport.update({
   id: '/que-es',
   path: '/que-es',
@@ -41,6 +48,11 @@ const CaracteristicasRoute = CaracteristicasRouteImport.update({
   path: '/caracteristicas',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AvisoPrivacidadRoute = AvisoPrivacidadRouteImport.update({
+  id: '/aviso-privacidad',
+  path: '/aviso-privacidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -49,67 +61,88 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aviso-privacidad': typeof AvisoPrivacidadRoute
   '/caracteristicas': typeof CaracteristicasRoute
   '/como-funciona': typeof ComoFuncionaRoute
   '/contacto': typeof ContactoRoute
   '/paquetes': typeof PaquetesRoute
   '/que-es': typeof QueEsRoute
+  '/terminos': typeof TerminosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aviso-privacidad': typeof AvisoPrivacidadRoute
   '/caracteristicas': typeof CaracteristicasRoute
   '/como-funciona': typeof ComoFuncionaRoute
   '/contacto': typeof ContactoRoute
   '/paquetes': typeof PaquetesRoute
   '/que-es': typeof QueEsRoute
+  '/terminos': typeof TerminosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aviso-privacidad': typeof AvisoPrivacidadRoute
   '/caracteristicas': typeof CaracteristicasRoute
   '/como-funciona': typeof ComoFuncionaRoute
   '/contacto': typeof ContactoRoute
   '/paquetes': typeof PaquetesRoute
   '/que-es': typeof QueEsRoute
+  '/terminos': typeof TerminosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/aviso-privacidad'
     | '/caracteristicas'
     | '/como-funciona'
     | '/contacto'
     | '/paquetes'
     | '/que-es'
+    | '/terminos'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/aviso-privacidad'
     | '/caracteristicas'
     | '/como-funciona'
     | '/contacto'
     | '/paquetes'
     | '/que-es'
+    | '/terminos'
   id:
     | '__root__'
     | '/'
+    | '/aviso-privacidad'
     | '/caracteristicas'
     | '/como-funciona'
     | '/contacto'
     | '/paquetes'
     | '/que-es'
+    | '/terminos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvisoPrivacidadRoute: typeof AvisoPrivacidadRoute
   CaracteristicasRoute: typeof CaracteristicasRoute
   ComoFuncionaRoute: typeof ComoFuncionaRoute
   ContactoRoute: typeof ContactoRoute
   PaquetesRoute: typeof PaquetesRoute
   QueEsRoute: typeof QueEsRoute
+  TerminosRoute: typeof TerminosRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terminos': {
+      id: '/terminos'
+      path: '/terminos'
+      fullPath: '/terminos'
+      preLoaderRoute: typeof TerminosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/que-es': {
       id: '/que-es'
       path: '/que-es'
@@ -145,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CaracteristicasRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/aviso-privacidad': {
+      id: '/aviso-privacidad'
+      path: '/aviso-privacidad'
+      fullPath: '/aviso-privacidad'
+      preLoaderRoute: typeof AvisoPrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -157,11 +197,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvisoPrivacidadRoute: AvisoPrivacidadRoute,
   CaracteristicasRoute: CaracteristicasRoute,
   ComoFuncionaRoute: ComoFuncionaRoute,
   ContactoRoute: ContactoRoute,
   PaquetesRoute: PaquetesRoute,
   QueEsRoute: QueEsRoute,
+  TerminosRoute: TerminosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
