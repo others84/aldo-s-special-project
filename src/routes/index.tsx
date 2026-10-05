@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CalendarCheck, MessageCircle, TrendingDown, Smartphone, ShieldCheck, Stethoscope, UserCog, Headset, Building2 } from "lucide-react";
+import { CalendarCheck, MessageCircle, TrendingDown, Smartphone, Stethoscope, UserCog, Headset, Building2 } from "lucide-react";
 import heroAsset from "@/assets/imagen1.jpg.asset.json";
-import reception from "@/assets/reception-dentista.jpg";
+import receptionAsset from "@/assets/imagen2.webp.asset.json";
 const hero = heroAsset.url;
+const reception = receptionAsset.url;
 import { CTA, seo } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/")({
@@ -34,7 +35,7 @@ function Index() {
       <section className="bg-secondary">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
           <div>
-            <p className="inline-block rounded-full bg-card px-3 py-1 text-xs font-semibold text-primary">🇲🇽 Software médico hecho en México</p>
+            <p className="inline-block rounded-full bg-card px-3 py-1 text-xs font-semibold text-primary">🇲🇽 Software 100% mexicano adaptado a las necesidades nacionales</p>
             <h1 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">
               Sistema de citas médicas <span className="text-primary">online</span>
             </h1>
@@ -49,7 +50,7 @@ function Index() {
 
       <section className="mx-auto max-w-6xl px-4 py-20">
         <h2 className="text-center text-3xl font-bold">Agenda médica online que trabaja por ti</h2>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">Un programa para agendar citas médicas pensado para médicos de cualquier especialidad que atienden con previa cita.</p>
+        <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">Un software para agendar citas pensado para médicos de cualquier especialidad atendiendo en el esquema "previa cita".</p>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((b) => (
             <div key={b.t} className="rounded-xl border bg-card p-6 shadow-sm">
@@ -63,9 +64,9 @@ function Index() {
 
       <section className="bg-card">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-20 md:grid-cols-2">
-          <img src={reception} alt="Asistente en recepción del Consultorio Dra. Sandra Carmina, dentista" loading="lazy" width={1536} height={1024} className="rounded-2xl shadow-lg" />
+          <img src={reception} alt="Asistente usando el software para consultorios en recepción" loading="lazy" width={2000} height={1334} className="rounded-2xl shadow-lg" />
           <div>
-            <h2 className="text-3xl font-bold">Software para clínicas con acceso para asistentes y médicos</h2>
+            <h2 className="text-3xl font-bold">Software para consultorios y clínicas con acceso a través de roles</h2>
             <div className="mt-6 space-y-5">
               {roles.map((r) => (
                 <div key={r.t} className="flex gap-4">
@@ -80,11 +81,10 @@ function Index() {
 
       <section className="mx-auto max-w-6xl px-4 py-20">
         <h2 className="text-center text-3xl font-bold">Plataforma de citas médicas para cada tipo de práctica</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2">
           {[
             { icon: Stethoscope, t: "Médicos independientes", d: "Agenda electrónica para especialistas: ginecología, pediatría, odontología y más." },
             { icon: Building2, t: "Clínicas y policlínicas", d: "Administra varias clínicas médicas o sucursales con datos aislados por clínica." },
-            { icon: ShieldCheck, t: "Torres de consultorios", d: "Software administrativo para centros médicos con control de médicos y consultorios." },
           ].map((c) => (
             <div key={c.t} className="rounded-xl border-t-4 border-primary bg-card p-6 shadow-sm">
               <c.icon className="h-7 w-7 text-accent" />
@@ -93,7 +93,6 @@ function Index() {
             </div>
           ))}
         </div>
-        <p className="mt-10 text-center text-sm text-muted-foreground">Atendemos en toda la República Mexicana.</p>
       </section>
       <CTA />
     </>
