@@ -1,46 +1,55 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Flag, Package, Users, Cloud } from "lucide-react";
-import desk from "@/assets/desk-stethoscope.jpg";
-import { CTA, PageHero, seo } from "@/components/site/Layout";
+import { RefreshCw, Package, Building2, Cloud } from "lucide-react";
+import { CTA, seo } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/que-es")({
   head: () =>
     seo(
-      "¿Qué es SGCO? Software de gestión médica multiclínica",
-      "SGCO es un software de gestión médica en la nube que conecta pacientes, asistentes y médicos en tiempo real. Software médico mexicano todo incluido.",
+      "¿Qué es SGCO? Sistema integral de gestión médica y citas",
+      "SGCO es un software de gestión médica en la nube que conecta pacientes y médicos en tiempo real. Software para consultorios y clínicas, todo incluido.",
       "/que-es",
     ),
   component: Page,
 });
 
+const cards = [
+  { i: RefreshCw, t: "Mejora continua", d: "Sistema en proceso de mejora continua sin costos adicionales para el médico." },
+  { i: Package, t: "Todo incluido", d: "Sin cobros ocultos por funcionalidades extra." },
+  { i: Building2, t: "Policlínica", d: "Administra un edificio de consultorios de varias especialidades en una misma pantalla." },
+  { i: Cloud, t: "100% web", d: "Sin instalar nada. Funciona en cualquier navegador." },
+];
+
 function Page() {
   return (
     <>
-      <PageHero eyebrow="¿Qué es SGCO?" title="Sistema Integral de Gestión Médica y Citas Multiclínica">
-        "La plataforma web que conecta a tus pacientes, asistentes y médicos en tiempo real, optimizando la agenda de tu clínica y eliminando el ausentismo."
-      </PageHero>
-      <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2">
-        <div>
-          <h2 className="text-3xl font-bold">Software médico en la nube, hecho en México</h2>
-          <p className="mt-4 text-muted-foreground">
-            SGCO (Sistema de Gestión de Citas Online) es un software para clínicas médicas y consultorios que sustituye la agenda de papel. Tus pacientes agendan solos, tu asistente confirma por WhatsApp y tú ves tus citas desde el celular.
-          </p>
-          <div className="mt-8 grid gap-5 sm:grid-cols-2">
-            {[
-              { i: Flag, t: "Mexicano", d: "Desarrollado en Puebla, con soporte en tu idioma y horario." },
-              { i: Package, t: "Todo incluido", d: "Sin módulos extra ni cobros ocultos por funcionalidades." },
-              { i: Users, t: "Multiclínica", d: "Crece de un consultorio a varias clínicas." },
-              { i: Cloud, t: "100% web", d: "Sin instalar nada. Funciona en cualquier navegador." },
-            ].map((x) => (
-              <div key={x.t} className="rounded-xl border bg-card p-5">
-                <x.i className="h-6 w-6 text-primary" />
-                <h3 className="mt-2 font-semibold">{x.t}</h3>
-                <p className="text-sm text-muted-foreground">{x.d}</p>
-              </div>
-            ))}
+      <section className="bg-secondary">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wider text-accent">¿Qué es SGCO?</p>
+            <h1 className="mt-2 text-3xl font-bold md:text-5xl">Sistema Integral de Gestión Médica y Citas</h1>
+            <p className="mt-4 text-lg text-muted-foreground">
+              "La plataforma web que conecta a pacientes y médicos en tiempo real, optimizando la agenda de tu consultorio o clínica y reduciendo drásticamente el ausentismo."
+            </p>
+          </div>
+          <div className="grid place-items-center rounded-2xl bg-card p-10 shadow-xl">
+            <img src="/favicon.png" alt="Logotipo SGCO" width={256} height={256} className="h-56 w-56 object-contain" style={{ imageRendering: "auto" }} />
           </div>
         </div>
-        <img src={desk} alt="Laptop con sistema de citas médicas junto a estetoscopio" loading="lazy" width={1536} height={1024} className="rounded-2xl shadow-lg" />
+      </section>
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <h2 className="text-3xl font-bold">Software médico en la nube</h2>
+        <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
+          SGCO (Sistema de Gestión de Citas Online) es un software para consultorios y clínicas médicas que sustituye la agenda tradicional de papel.
+        </p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {cards.map((x) => (
+            <div key={x.t} className="rounded-xl border bg-card p-6 shadow-sm">
+              <x.i className="h-7 w-7 text-primary" />
+              <h3 className="mt-3 font-semibold">{x.t}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{x.d}</p>
+            </div>
+          ))}
+        </div>
       </section>
       <CTA />
     </>
