@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CalendarCheck, MessageCircle, TrendingDown, Smartphone, Stethoscope, UserCog, Headset, Building2 } from "lucide-react";
+import { CalendarCheck, MessageCircle, TrendingDown, Smartphone, Stethoscope, UserCog, Headset } from "lucide-react";
 import heroAsset from "@/assets/imagen1.jpg.asset.json";
 import receptionAsset from "@/assets/imagen2.webp.asset.json";
 const hero = heroAsset.url;
@@ -66,7 +66,7 @@ function Index() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-20 md:grid-cols-2">
           <img src={reception} alt="Asistente usando el software para consultorios en recepción" loading="lazy" width={2000} height={1334} className="rounded-2xl shadow-lg" />
           <div>
-            <h2 className="text-3xl font-bold">Software para consultorios y clínicas con acceso a través de roles</h2>
+            <h2 className="text-3xl font-bold">Acceso al sistema a través de roles</h2>
             <div className="mt-6 space-y-5">
               {roles.map((r) => (
                 <div key={r.t} className="flex gap-4">
@@ -79,21 +79,6 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-20">
-        <h2 className="text-center text-3xl font-bold">Plataforma de citas médicas para cada tipo de práctica</h2>
-        <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2">
-          {[
-            { icon: Stethoscope, t: "Médicos independientes", d: "Agenda electrónica para especialistas: ginecología, pediatría, odontología y más." },
-            { icon: Building2, t: "Clínicas y policlínicas", d: "Administra varias clínicas médicas o sucursales con datos aislados por clínica." },
-          ].map((c) => (
-            <div key={c.t} className="rounded-xl border-t-4 border-primary bg-card p-6 shadow-sm">
-              <c.icon className="h-7 w-7 text-accent" />
-              <h3 className="mt-3 font-semibold">{c.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{c.d}</p>
-            </div>
-          ))}
-        </div>
-      </section>
       <CTA />
     </>
   );

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X, CalendarCheck } from "lucide-react";
+import logoAsset from "@/assets/logo-sgco.png.asset.json";
 
 const nav = [
   { to: "/", label: "Inicio" },
@@ -14,10 +15,7 @@ const nav = [
 export function Logo() {
   return (
     <Link to="/" className="flex items-center gap-2" aria-label="SGCO inicio">
-      <img src="/favicon.png" alt="Logotipo SGCO" width={40} height={40} className="h-10 w-10" />
-      <span className="text-xl font-bold text-foreground" style={{ fontFamily: "Sora" }}>
-        SGCO<span className="text-accent">.</span>
-      </span>
+      <img src={logoAsset.url} alt="Logotipo SGCO" width={40} height={30} className="h-10 w-auto" />
     </Link>
   );
 }
