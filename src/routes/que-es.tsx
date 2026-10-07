@@ -6,7 +6,7 @@ import { CTA, seo } from "@/components/site/Layout";
 export const Route = createFileRoute("/que-es")({
   head: () =>
     seo(
-      "¿Qué es SGCO? Sistema integral de gestión médica y citas",
+      "¿Qué es SGCO? Sistema de gestión de citas online",
       "SGCO es un software de gestión médica en la nube que conecta pacientes y médicos en tiempo real. Software para consultorios y clínicas, todo incluido.",
       "/que-es",
     ),
