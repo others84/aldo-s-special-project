@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { RefreshCw, Package, Building2, Cloud } from "lucide-react";
+import logoAsset from "@/assets/logo-sgco.png.asset.json";
 import { CTA, seo } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/que-es")({
   head: () =>
     seo(
-      "¿Qué es SGCO? Sistema integral de gestión médica y citas",
+      "¿Qué es SGCO? Sistema de gestión de citas online",
       "SGCO es un software de gestión médica en la nube que conecta pacientes y médicos en tiempo real. Software para consultorios y clínicas, todo incluido.",
       "/que-es",
     ),
@@ -26,13 +27,13 @@ function Page() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wider text-accent">¿Qué es SGCO?</p>
-            <h1 className="mt-2 text-3xl font-bold md:text-5xl">Sistema Integral de Gestión Médica y Citas</h1>
+            <h1 className="mt-2 text-3xl font-bold md:text-5xl">Sistema de gestión de citas online</h1>
             <p className="mt-4 text-lg text-muted-foreground">
               "La plataforma web que conecta a pacientes y médicos en tiempo real, optimizando la agenda de tu consultorio o clínica y reduciendo drásticamente el ausentismo."
             </p>
           </div>
           <div className="grid place-items-center rounded-2xl bg-card p-10 shadow-xl">
-            <img src="/favicon.png" alt="Logotipo SGCO" width={256} height={256} className="h-56 w-56 object-contain" style={{ imageRendering: "auto" }} />
+            <img src={logoAsset.url} alt="Logotipo SGCO" width={400} height={300} className="h-56 w-auto object-contain" />
           </div>
         </div>
       </section>
