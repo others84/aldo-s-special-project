@@ -5,7 +5,7 @@ export const Route = createFileRoute("/terminos")({
   head: () =>
     seo(
       "Términos del servicio | SGCO",
-      "Términos y condiciones del sistema de gestión de citas online SGCO: suscripción, pago por transferencia, facturación, cancelación y jurisdicción.",
+      "Términos y condiciones del sistema de gestión de citas online SGCO: contrato con firma electrónica, suscripción, pago por transferencia, facturación, cancelación y jurisdicción.",
       "/terminos",
     ),
   component: Page,
@@ -39,6 +39,23 @@ function Page() {
               página de Paquetes
             </Link>
             , expresados en pesos mexicanos más IVA; el pago anual equivale a pagar 10 meses y usar 12.
+          </p>
+        </Section>
+
+        <Section title="Contrato de prestación del servicio">
+          <p>
+            La contratación se formaliza con un <strong className="text-foreground">contrato de prestación del servicio que se firma de forma electrónica</strong>, sin uso de papel. La firma se
+            realiza en el primer acceso al sistema, junto con el registro de la <strong className="text-foreground">cédula profesional</strong> del especialista.
+          </p>
+          <p>
+            De acuerdo con la legislación mexicana, el contrato firmado electrónicamente produce los mismos efectos que uno firmado de puño y letra.
+          </p>
+          <p>
+            Al firmar el contrato, el usuario acepta estos términos y el tratamiento de datos personales descrito en el{" "}
+            <Link to="/aviso-privacidad" className="font-semibold text-primary hover:underline">
+              Aviso de privacidad
+            </Link>
+            .
           </p>
         </Section>
 
