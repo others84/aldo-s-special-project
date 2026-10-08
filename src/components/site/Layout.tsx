@@ -64,7 +64,7 @@ export function Footer() {
         <div>
           <Logo />
           <p className="mt-3 text-sm text-muted-foreground">
-            Software médico mexicano en la nube para consultorios, clínicas y policlínicas. Desde Puebla para todo México.
+            Software médico mexicano en la nube para consultorios y policlínicas.
           </p>
         </div>
         <div className="flex flex-col gap-2 text-sm">
