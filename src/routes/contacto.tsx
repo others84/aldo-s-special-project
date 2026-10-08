@@ -102,11 +102,11 @@ function Page() {
           <CalendarCheck className="h-8 w-8" />
           <h2 className="mt-4 text-xl font-bold">Así funciona tu solicitud</h2>
           <ul className="mt-4 space-y-3 text-sm opacity-95">
-            <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> Llena el formulario con los datos de tu consultorio o clínica.</li>
-            <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> Recibes acceso al demo y una explicación personalizada.</li>
+            <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> Llena el formulario con los datos de tu consultorio o policlínica.</li>
+            <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> Recibirás un correo solicitando la información necesaria para poder acceder al sistema DEMO.</li>
             <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> Sin compromiso: decides después de probar el sistema.</li>
           </ul>
-          <p className="mt-5 text-sm opacity-90">Atendemos médicos y clínicas en Puebla, Tlaxcala, CDMX, Guadalajara, Monterrey y todo México.</p>
+          <p className="mt-5 text-sm opacity-90">Atendemos médicos y clínicas en toda la República Mexicana.</p>
         </aside>
       </section>
     </>
