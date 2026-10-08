@@ -5,7 +5,7 @@ export const Route = createFileRoute("/terminos")({
   head: () =>
     seo(
       "Términos del servicio | SGCO",
-      "Términos y condiciones del sistema de gestión de citas online SGCO: suscripción, pago por transferencia, facturación, cancelación y jurisdicción.",
+      "Términos y condiciones del sistema de gestión de citas online SGCO: contrato con firma electrónica, suscripción, pago por transferencia, facturación, cancelación y jurisdicción.",
       "/terminos",
     ),
   component: Page,
