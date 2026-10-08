@@ -51,6 +51,7 @@ function Page() {
         <Section title="Finalidades del tratamiento">
           <ul className="space-y-1">
             <li className={li}>Atender tu solicitud de información y facilitarte el acceso al demo.</li>
+            <li className={li}>Verificar la cédula profesional y firmar el contrato de prestación del servicio con el que se otorga el acceso al sistema.</li>
             <li className={li}>Cobrar, facturar y administrar la suscripción contratada.</li>
             <li className={li}>Brindar, operar y dar soporte técnico al servicio de gestión de citas.</li>
             <li className={li}>Enviarte avisos relacionados con el servicio, como mantenimientos programados o cambios relevantes.</li>
