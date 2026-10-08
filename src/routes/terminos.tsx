@@ -42,6 +42,23 @@ function Page() {
           </p>
         </Section>
 
+        <Section title="Contrato de prestación del servicio">
+          <p>
+            La contratación se formaliza con un <strong className="text-foreground">contrato de prestación del servicio que se firma de forma electrónica</strong>, sin uso de papel. La firma se
+            realiza en el primer acceso al sistema, junto con el registro de la <strong className="text-foreground">cédula profesional</strong> del especialista.
+          </p>
+          <p>
+            De acuerdo con la legislación mexicana, el contrato firmado electrónicamente produce los mismos efectos que uno firmado de puño y letra.
+          </p>
+          <p>
+            Al firmar el contrato, el usuario acepta estos términos y el tratamiento de datos personales descrito en el{" "}
+            <Link to="/aviso-privacidad" className="font-semibold text-primary hover:underline">
+              Aviso de privacidad
+            </Link>
+            .
+          </p>
+        </Section>
+
         <Section title="Pago y facturación">
           <p>
             El pago de la suscripción se realiza mediante <strong className="text-foreground">transferencia bancaria</strong> a la cuenta que SGCO indique al momento de la contratación. La
