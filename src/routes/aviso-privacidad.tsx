@@ -42,6 +42,7 @@ function Page() {
         <Section title="Datos que recabamos">
           <ul className="space-y-1">
             <li className={li}>Los que nos proporcionas al solicitar información o el demo: nombre, correo electrónico, teléfono, consultorio o clínica, ciudad y el mensaje que nos escribes.</li>
+            <li className={li}>Tu <strong className="text-foreground">cédula profesional</strong>, que se solicita al firmar el contrato de prestación del servicio, en el primer acceso al sistema.</li>
             <li className={li}>Los que se generan al usar el sistema: agendas, horarios, citas y los datos de pacientes que el especialista o su asistente registran.</li>
             <li className={li}>Los de facturación necesarios para emitir tu comprobante fiscal.</li>
           </ul>
