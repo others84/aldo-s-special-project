@@ -1,3 +1,4 @@
 # Pendientes
 - [x] Actualizar los campos y textos de Contacto solicitados por Victo.
-- [ ] Configurar y comprobar el envío del formulario con Hostinger.
+- [x] Configurar el envío con Hostinger y guardar la contraseña como secreto.
+- [ ] Comprobar la entrega real con Hostinger: requiere publicar para ejecutar la conexión SMTP en el entorno compatible.
