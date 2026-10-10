@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Contact submission validation and SMTP configuration live in a browser-safe schema module; delivery stays inside the server function so credentials never enter client code.
+- Use the Worker-native SMTP library for contact delivery, dynamically loaded inside the handler; the local Node preview cannot prove production socket delivery.

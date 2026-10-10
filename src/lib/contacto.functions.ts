@@ -1,27 +1,16 @@
 import { createServerFn } from "@tanstack/react-start";
-import { z } from "zod";
-
-const contactoSchema = z.object({
-  nombre: z.string().trim().min(1).max(100),
-  correo: z.string().trim().email().max(255),
-  telefono: z.string().trim().max(50).optional().or(z.literal("")),
-  clinica: z.string().trim().max(200).optional().or(z.literal("")),
-  ciudad: z.string().trim().max(100).optional().or(z.literal("")),
-  mensaje: z.string().trim().max(2000).optional().or(z.literal("")),
-  demo: z.boolean(),
-});
+import { contactoSchema, hostingerConfig } from "./contacto.schema";
 
 export const enviarContacto = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => contactoSchema.parse(data))
   .handler(async ({ data }) => {
-    const { sendLovableEmail } = await import("@lovable.dev/email-js");
+    const password = process.env["HOSTINGER_SMTP_PASSWORD"];
+    if (!password) return { ok: false as const, reason: "email_not_ready" as const };
 
     const filas = [
       ["Nombre", data.nombre],
       ["Correo", data.correo],
-      ["Teléfono / WhatsApp", data.telefono || "—"],
-      ["Clínica o especialidad", data.clinica || "—"],
-      ["Ciudad", data.ciudad || "—"],
+      ["Teléfono", data.telefono || "—"],
       ["Acceso al demo", data.demo ? "Sí" : "No"],
     ] as const;
 
@@ -42,27 +31,24 @@ export const enviarContacto = createServerFn({ method: "POST" })
     ].join("\n");
 
     try {
-      await sendLovableEmail(
+      const { EdgeMailer } = await import("edge-mailer/cloudflare");
+      await EdgeMailer.send(
+        {
+          ...hostingerConfig,
+          credentials: { username: "ventas@sgcopuebla.com.mx", password },
+          signal: AbortSignal.timeout(20000),
+        },
         {
           to: "ventas@sgcopuebla.com.mx",
           from: "ventas@sgcopuebla.com.mx",
-          sender_domain: "sgcopuebla.com.mx",
-          reply_to: data.correo,
+          reply: data.correo,
           subject: `Solicitud de información SGCO — ${data.nombre}`,
           html,
           text,
-          purpose: "sales_inquiry",
-          label: "contacto-sgco",
         },
-        { apiKey: process.env["LOVABLE_API_KEY"]! },
       );
       return { ok: true as const };
-    } catch (err) {
-      const code = (err as { code?: string }).code ?? "";
-      const status = (err as { status?: number }).status ?? 0;
-      if (code === "emails_disabled" || status === 400) {
-        return { ok: false as const, reason: "email_not_ready" as const };
-      }
+    } catch {
       return { ok: false as const, reason: "send_failed" as const };
     }
   });
