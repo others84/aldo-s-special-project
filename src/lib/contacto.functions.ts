@@ -4,7 +4,17 @@ import { contactoSchema, hostingerConfig } from "./contacto.schema";
 export const enviarContacto = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => contactoSchema.parse(data))
   .handler(async ({ data }) => {
-    const password = process.env["HOSTINGER_SMTP_PASSWORD"];
+    let password = process.env["HOSTINGER_SMTP_PASSWORD"];
+    if (!password) {
+      // El servidor Node compilado (VPS) no carga .env por sí solo.
+      try {
+        const dotenv = await import("dotenv");
+        dotenv.config();
+        password = process.env["HOSTINGER_SMTP_PASSWORD"];
+      } catch {
+        // Entorno sin dotenv (por ejemplo, la nube): se ignora.
+      }
+    }
     if (!password) return { ok: false as const, reason: "email_not_ready" as const };
 
     const filas = [
