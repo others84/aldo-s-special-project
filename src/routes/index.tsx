@@ -1,9 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CalendarCheck, MessageCircle, TrendingDown, Smartphone, Stethoscope, UserCog, Headset } from "lucide-react";
-import heroAsset from "@/assets/imagen1.jpg.asset.json";
-import receptionAsset from "@/assets/imagen2.webp.asset.json";
-const hero = heroAsset.url;
-const reception = receptionAsset.url;
+import hero from "@/assets/imagen1.jpg";
+import reception from "@/assets/imagen2.webp";
 import { CTA, seo } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/")({

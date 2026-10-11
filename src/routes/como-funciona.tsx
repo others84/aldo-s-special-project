@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import asistente from "@/assets/asistente.jpg.asset.json";
-import medico from "@/assets/medico.jpg.asset.json";
+import asistente from "@/assets/asistente.jpg";
+import medico from "@/assets/medico.jpg";
 import { CTA, PageHero, seo } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/como-funciona")({
@@ -14,8 +14,8 @@ export const Route = createFileRoute("/como-funciona")({
 });
 
 const roles = [
-  { t: "Rol: Asistente", d: "Organiza la agenda, contacta pacientes y coordina espacios para toda la clínica.", img: asistente.url, alt: "Diagrama de lo que la asistente puede hacer en SGCO" },
-  { t: "Rol: Médico", d: "Atiende a sus pacientes y controla los tiempos reales de su consulta.", img: medico.url, alt: "Diagrama de lo que el médico puede hacer en SGCO" },
+  { t: "Rol: Asistente", d: "Organiza la agenda, contacta pacientes y coordina espacios para toda la clínica.", img: asistente, alt: "Diagrama de lo que la asistente puede hacer en SGCO" },
+  { t: "Rol: Médico", d: "Atiende a sus pacientes y controla los tiempos reales de su consulta.", img: medico, alt: "Diagrama de lo que el médico puede hacer en SGCO" },
 ];
 
 function Page() {

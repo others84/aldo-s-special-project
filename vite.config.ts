@@ -13,9 +13,6 @@ export default defineConfig({
   },
   nitro: {
     preset: "node",
-    externals: {
-      external: ["cloudflare:sockets"],
-    },
   },
   tanstackStart: {
     server: { entry: "server" },
