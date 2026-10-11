@@ -15,7 +15,7 @@ const nav = [
 export function Logo() {
   return (
     <Link to="/" className="flex items-center gap-2" aria-label="SGCO inicio">
-      <img src={logoUrl.url} alt="Logotipo SGCO" width={40} height={30} className="h-10 w-auto" />
+      <img src={logoUrl} alt="Logotipo SGCO" width={40} height={30} className="h-10 w-auto" />
     </Link>
   );
 }
