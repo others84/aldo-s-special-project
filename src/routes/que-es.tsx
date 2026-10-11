@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { RefreshCw, Package, Building2, Cloud } from "lucide-react";
-import logoAsset from "@/assets/logo-sgco.png.asset.json";
+import logoUrl from "@/assets/logo-sgco.png";
 import { CTA, seo } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/que-es")({
@@ -33,7 +33,7 @@ function Page() {
             </p>
           </div>
           <div className="grid place-items-center rounded-2xl bg-card p-10 shadow-xl">
-            <img src={logoAsset.url} alt="Logotipo SGCO" width={400} height={300} className="h-56 w-auto object-contain" />
+            <img src={logoUrl} alt="Logotipo SGCO" width={400} height={300} className="h-56 w-auto object-contain" />
           </div>
         </div>
       </section>
