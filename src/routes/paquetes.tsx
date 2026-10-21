@@ -7,7 +7,7 @@ export const Route = createFileRoute("/paquetes")({
   head: () =>
     seo(
       "Precios del software para clínicas en México | SGCO",
-      "Paquetes de software médico económico: Consultorio desde $800 MXN al mes. Pago anual: paga 10 meses y usa 12. Todo incluido.",
+      "Paquetes de software médico económico: Consultorio desde $800 MXN al mes. Pago anual: paga 8 meses y usa 12. Todo incluido.",
       "/paquetes",
     ),
   component: Page,
@@ -29,7 +29,7 @@ const plans = [
 function Page() {
   const [annual, setAnnual] = useState(false);
   const [docs, setDocs] = useState(3);
-  const mult = annual ? 10 : 1;
+  const mult = annual ? 8 : 1;
   const per = annual ? "/año" : "/mes";
   return (
     <>
@@ -38,7 +38,7 @@ function Page() {
         <div className="mx-auto flex w-fit rounded-full border bg-card p-1">
           {["Mensual", "Anual"].map((l, i) => (
             <button key={l} onClick={() => setAnnual(i === 1)} className={`rounded-full px-5 py-2 text-sm font-semibold ${annual === (i === 1) ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}>
-              {l}{i === 1 && " (2 meses gratis)"}
+              {l}{i === 1 && " (4 meses gratis)"}
             </button>
           ))}
         </div>
