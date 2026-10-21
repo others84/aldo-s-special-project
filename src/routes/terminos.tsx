@@ -38,7 +38,7 @@ function Page() {
             <Link to="/paquetes" className="font-semibold text-primary hover:underline">
               página de Paquetes
             </Link>
-            , expresados en pesos mexicanos más IVA; el pago anual equivale a pagar 10 meses y usar 12.
+            , expresados en pesos mexicanos más IVA; el pago anual equivale a pagar 8 meses y usar 12.
           </p>
         </Section>
 
