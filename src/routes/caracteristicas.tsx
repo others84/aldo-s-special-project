@@ -15,10 +15,11 @@ export const Route = createFileRoute("/caracteristicas")({
 
 const features = [
   { i: Building2, t: "Gestión de consultorios y policlínicas", items: ["Gestiona uno o más consultorios en una misma pantalla.", "Gestión sencilla de pacientes de cada clínica.", "Administración de catálogos y tareas comunes para cada consultorio"] },
-  { i: Globe, t: "Agenda de citas por parte de los pacientes en línea 24/7", items: ["Los pacientes pueden agendar desde cualquier dispositivo conectado a internet a cualquier hora visualizando tu agenda y los horarios y fechas disponibles.", "Verificación OTP (contraseña de un solo uso) para proteger datos de pacientes recurrentes."] },
+  { i: Globe, t: "Agenda de citas por parte de los pacientes en línea 24/7", items: ["Los pacientes pueden agendar desde cualquier dispositivo conectado a internet a cualquier hora visualizando tu agenda y los horarios y fechas disponibles."] },
   { i: CalendarDays, t: "Agenda médica inteligente", items: ["Vistas mensual, semanal y diaria de la agenda del médico.", "Medición exacta del tiempo real de consulta.", "Configuración de bloqueo de fechas y horas de no atención de citas médicas (vacaciones, horarios de comida, etc.).", "Información de seguimiento a pacientes recurrentes."] },
   { i: MessageCircle, t: "Recordatorios por WhatsApp y correo", items: ["Envío de recordatorios con un par de clics.", "Plantillas de notificaciones 100% personalizadas por médico."] },
   { i: ShieldCheck, t: "Control de acceso por roles", items: ["Administrador de clínica: administración de consultorios, médicos, catálogos y accesos.", "Médico: gestión de su agenda, pacientes, citas y reportes de ingresos.", "Asistentes: gestión de citas, pacientes y seguimiento."] },
+  { i: LockKeyhole, t: "Seguridad", items: ["La aplicación cifra la información usando SSL.", "Verificación OTP (contraseña de un solo uso) para proteger datos de pacientes recurrentes."] },
   { i: MonitorSmartphone, t: "100% web y multidispositivo", items: ["Chrome, Safari, Edge y Firefox.", "iPhone, Android, tablets, laptops y PC.", "Sin descargar aplicaciones."] },
 ];
 
