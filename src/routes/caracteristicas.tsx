@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Building2, Globe, CalendarDays, MessageCircle, ShieldCheck, MonitorSmartphone } from "lucide-react";
+import { Building2, Globe, CalendarDays, MessageCircle, ShieldCheck, LockKeyhole, MonitorSmartphone } from "lucide-react";
 import desk from "@/assets/desk-stethoscope.jpg";
 import { CTA, seo } from "@/components/site/Layout";
 
