@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { CalendarCheck, CheckCircle2, AlertTriangle, Phone } from "lucide-react";
+import { CalendarCheck, CheckCircle2, AlertTriangle } from "lucide-react";
 import { useServerFn } from "@tanstack/react-start";
 import { PageHero, seo } from "@/components/site/Layout";
 import { enviarContacto } from "@/lib/contacto.functions";
@@ -103,10 +103,7 @@ function Page() {
             <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> Recibirás un correo solicitando la información necesaria para poder acceder al sistema DEMO.</li>
             <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> Sin compromiso: decides después de probar el sistema.</li>
           </ul>
-          <p className="mt-5 flex items-center gap-2 text-sm font-semibold">
-            <Phone className="h-4 w-4" /> Tel. <a href="tel:+522311381947" className="hover:underline">231 138 1947</a>
-          </p>
-          <p className="mt-3 text-sm opacity-90">Atendemos médicos y clínicas en toda la República Mexicana.</p>
+          <p className="mt-5 text-sm opacity-90">Atendemos médicos y clínicas en toda la República Mexicana.</p>
         </aside>
       </section>
     </>
