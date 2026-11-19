@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { Menu, X, CalendarCheck } from "lucide-react";
+import { Menu, X, CalendarCheck, Phone } from "lucide-react";
 import logoUrl from "@/assets/logo-sgco.png";
 
 const nav = [
@@ -77,6 +77,9 @@ export function Footer() {
           <Link to="/contacto" className="mt-2 flex items-center gap-2 text-primary hover:underline">
             <CalendarCheck className="h-4 w-4" /> Solicita información o el demo
           </Link>
+          <a href="tel:+522311381947" className="mt-2 flex items-center gap-2 text-muted-foreground hover:text-primary">
+            <Phone className="h-4 w-4" /> 231 138 1947
+          </a>
           <div className="mt-4 flex flex-col gap-2">
             <Link to="/terminos" className="text-muted-foreground hover:text-primary">Términos del servicio</Link>
             <Link to="/aviso-privacidad" className="text-muted-foreground hover:text-primary">Aviso de privacidad</Link>
